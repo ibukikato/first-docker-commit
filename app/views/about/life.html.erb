@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="UTF-8">
+  <title>RaMN official website</title>
+  <meta name="description" content="キャンドル専門店のRaMNのウェブサイトです">
+  <meta name="viewport" content="width=device-width">
+  <%= stylesheet_link_tag "about_life" , :media=> "all" %>
+</head>
+
+<body>
+  <main>
+    <div class="first-view">
+      <h2>心地よい日常の灯り</h2>
+      <p>生活に馴染むキャンドルは、私たちの日常に温かさと心地よさをもたらす特別な存在です。RaMNでは、そんな生活に寄り添うキャンドルを提案し、お客様に心地よい日常の灯りをお届けしています。</p>
+      <%= link_to image_tag("photo/photo 03.webp"), "items" , class: "items01" %>
+    </div>
+    <div class="second-view">
+      <h2>様々なシーンを彩ります</h2>
+      <p>
+        私たちのキャンドルは、日常の様々なシーンで活躍します。リラックスした読書の時間、ディナーテーブルの中心に飾る特別な灯り、友人や家族とのくつろぎのひとときなど、生活のさまざまな瞬間に馴染みます。また、特別なイベントやお祝いの場でも、RaMNのキャンドルは幸せなムードを盛り上げます。
+      </p>
+      <%= link_to image_tag("photo/photo 10.jpg"), "items" , class: "items01" %>
+        <div class="life-fravor01">
+          <%= link_to image_tag("photo/photo 15.jpg"), "items" , class: "items01" %>
+            <p>集中したいときには、<br> ローズマリーの香りがおすすめです</p>
+        </div>
+        <div class="life-fravor02">
+          <%= link_to image_tag("photo/photo 01.webp"), "items" , class: "items01" %>
+            <p>瞑想には、<br> レモンの香りががおすすめです</p>
+        </div>
+        <div class="life-fravor03">
+          <%= link_to image_tag("photo/photo 04.jpg"), "items" , class: "items01" %>
+            <p>リラックスしたいときには、<br> オレンジスイートの香りがおすすめです。</p>
+        </div>
+    </div>
+    <div class="fifth-view">
+      <dl>
+        <dt>ー光と香りの融合ー</dt>
+        <dd>
+          燃えるキャンドルの柔らかな光は、周囲の空間を温かく照らし出し、穏やかな雰囲気を醸し出します。さらに、豊かな香りが広がり、心地よいアロマ効果を提供します。リラックスした時間を過ごしたり、特別な瞬間を演出するのに最適です。
+        </dd>
+      </dl>
+      <%= link_to image_tag("photo/photo 20.jpg"), "items" , class: "items01" %>
+        <p>ぜひ、RaMNのキャンドルをご体験いただき、その魅力に包まれる贅沢なひとときをお楽しみください。</p>
+    </div>
+  </main>
+</body>
+
+</html>

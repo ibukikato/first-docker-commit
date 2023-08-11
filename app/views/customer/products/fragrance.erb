@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="UTF-8">
+  <title>RaMN official website</title>
+  <meta name="description" content="キャンドル専門店のRaMNのウェブサイトです">
+  <meta name="viewport" content="width=device-width">
+  <%= stylesheet_link_tag "items_top" , :media=> "all" %>
+</head>
+
+<body>
+  <main>
+    <div>
+      <%= image_tag @fragrance.image %>
+    </div>
+    <div>
+      <%= @fragrance.name %>
+    </div>
+    <div>
+      <%= @fragrance.description %>
+    </div>
+  </main>
+</body>
+
+</html>

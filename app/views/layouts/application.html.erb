@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <title>RaMNApp</title>
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+  <%= csrf_meta_tags %>
+  <%= csp_meta_tag %>
+  <%= stylesheet_link_tag "all" , :media=> "all" %>
+  <%= stylesheet_link_tag "application" , "data-turbo-track"=> "reload" %>
+  <%= javascript_importmap_tags %>
+</head>
+
+<body>
+  <header class="header">
+    <div class="header-inner">
+      <div class="header-logo" href="./index.html">
+        <span>RaMN</span>
+        <%= image_tag("ikon/ikon01.jfif") %>
+      </div>
+      <div class="header-site-menu">
+        <nav class="site-menu">
+          <ul>
+            <% if admin_signed_in? %>
+              <li>
+                <%= link_to admin_root_path do %>
+                  <%= image_tag("ikon/ikon 04.jpg") %>
+                <% end %>
+              </li>
+              <li>
+                <%= link_to admin_customers_path do %>
+                  <%= image_tag("ikon/ikon 02.png") %>
+                <% end %>
+              </li>
+              <li>
+                <%= link_to admin_deliveries_path do %>
+                  <%= image_tag("ikon/ikon 05.jpg") %>
+                <% end %>
+              </li>
+              <li>
+                <%= link_to admin_fragrances_path do %>
+                  <%= image_tag("ikon/ikon 03.png") %>
+                <% end %>
+              </li>
+              <li>
+                <%= link_to admin_products_path do %>
+                  <%= image_tag("ikon/ikon 02.jpg") %>
+                <% end %>
+              </li>
+              <li>
+                <%= link_to destroy_admin_session_path, method: :delete, data: { turbo_method: :delete } do %>
+                  <%= image_tag("ikon/ikon 06.jpg") %>
+                <% end %>
+              </li>
+            <% elsif customer_signed_in? %>
+              <li>
+                <%= link_to image_tag("ikon/ikon 04.jpg"), "/" %>
+              </li>
+              <li>
+                <%= link_to products_path do %>
+                  <%= image_tag("ikon/ikon 02.jpg") %>
+                <% end %>
+              </li>
+              <li>
+                <%= link_to cart_items_path do %>
+                  <%= image_tag("ikon/ikon 4.jpeg") %>
+                  <% if current_customer.cart_items.present? %>
+                    <div class="inline-flex items-center px-1.5 py-0.4 border-2 border-white rounded-full text-xs font-semibold leading-4 bg-red-500 text-white">
+                      <%= total_quantity(current_customer.cart_items) %>
+                    </div>
+                  <% end %>
+                <% end %>
+              </li>
+              <li>
+                <%= link_to image_tag("ikon/ikon 05.jpg"), "navigate" %>
+              </li>
+              <li>
+                <%= link_to destroy_customer_session_path, method: :delete, data: { turbo_method: :delete } do %>
+                  <%= image_tag("ikon/ikon 06.jpg") %>
+                <% end %>
+              </li>
+            <% else %>
+              <li>
+                <%= link_to image_tag("ikon/ikon 04.jpg"), "/" %>
+              </li>
+              <li>
+                <%= link_to image_tag("ikon/ikon 02.jpg"), "items" %>
+              </li>
+              <li>
+                <%= link_to image_tag("ikon/ikon 05.jpg"), "navigate" %>
+              </li>
+              <li>
+                <%= link_to image_tag("ikon/ikon 4.jpeg"), "shopping" %>
+              </li>
+              <li>
+                <%= link_to new_customer_session_path do %>
+                  <%= image_tag("ikon/ikon 1.jpeg") %>
+                <% end %>
+              </li>
+            <% end %>
+          </ul>
+        </nav>
+      </div>
+    </div>
+  </header>
+  <% if flash[:notice] %>
+    <div class="flash">
+      <%= flash[:notice] %>
+    </div>
+    <% end %>
+      <%= yield %>
+        <footer>
+          <div class="footer-inner">
+            <%= link_to image_tag("ikon/ikon01.jfif"), "/" %>
+              <p>TEL 01-2345-6789</p>
+              <%= link_to image_tag("ikon/ikon 5.jpeg"), "/" %>
+                <%= link_to image_tag("ikon/ikon 01.png"), "/" %>
+                  <%= link_to image_tag("ikon/ikon 01.jpg"), "/" %>
+          </div>
+          <p><small>&copy;2023 Starbucks Coffee Company. All rights reserved.</small></p>
+        </footer>
+</body>
+
+</html>

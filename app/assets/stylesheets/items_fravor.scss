@@ -1,0 +1,29 @@
+main {
+  background-color: blanchedalmond;
+}
+
+.first-view {
+  padding-bottom: 30px;
+  img {
+    border-radius: 50%;
+    width: 400px;
+    height: 400px;
+    margin-top: 20px;
+  }
+  h2 {
+    font-size: 30px;
+    margin-top: 20px;
+    &::after {
+      content: '';
+      display: block;
+      width: 120px;
+      height: 5px;
+      background-color: black;
+      margin: 10px auto 20px;
+    }
+  }
+  p {
+    font-size: 30px;
+    margin: 20px 100px 0px;
+  }
+}

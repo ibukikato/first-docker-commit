@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="UTF-8">
+  <title>RaMN official website</title>
+  <meta name="description" content="キャンドル専門店のRaMNのウェブサイトです">
+  <meta name="viewport" content="width=device-width">
+  <%= stylesheet_link_tag "home_top" , :media=> "all" %>
+  <%= javascript_include_tag "script" %>
+</head>
+
+<body>
+  <main>
+    <div class="first-view">
+      <div class="items01">
+        <%= link_to image_tag("candle/candle 02.webp"), "items" %>
+        <div class="link-button-area">
+          <%= link_to "more" , "items" , class: "link-button" %>
+        </div>
+      </div>
+      <div class="items02">
+        <%= link_to image_tag("photo/photo 11.jpg"), "items" %>
+        <div class="link-button-area">
+          <%= link_to "more" , "items" , class: "link-button" %>
+        </div>
+      </div>
+      <div class="items03">
+        <%= link_to image_tag("photo/photo 06.jpg"), "items" %>
+        <div class="link-button-area">
+          <%= link_to "more" , "items" , class: "link-button" %>
+        </div>
+      </div>
+    </div>
+    <div class="second-view">
+      <%= image_tag("ikon/ikon01.jfif") %>
+        <div class="text">
+          <dl>
+            <dt>～RaMN～</dt>
+            <dd>RaMN(ラム)は、見た目に美しさを追求し、香りで心を癒すキャンドル専門店です。私たちは、美しいデザインと魅力的な香りを使用し、様々なな瞬間を彩るための魅力的なキャンドルを厳選して取り揃えています。</dd>
+          </dl>
+          <div class="link-button-area">
+            <%= link_to "more" , "about" , class: "link-button" %>
+          </div>
+        </div>
+    </div>
+    <div class="third-view">
+      <h2>items</h2>
+      <div class="slider-container">
+        <div class="slides">
+          <div class="slide"><%= link_to image_tag("candle/candle 02.webp"), "items" %></div>
+          <div class="slide"><%= link_to image_tag("candle/candle 42.jpg"), "items" %></div>
+          <div class="slide"><%= link_to image_tag("candle/candle 02.webp"), "items" %></div>
+          <div class="slide"><%= link_to image_tag("candle/candle 42.jpg"), "items" %></div>
+          <div class="slide"><%= link_to image_tag("candle/candle 02.webp"), "items" %></div>
+          <div class="slide"><%= link_to image_tag("candle/candle 42.jpg"), "items" %></div>
+          <!-- 必要なだけスライドを追加 -->
+        </div>
+      </div>
+      <div class="controls">
+        <button class="prev-button">&#10094;</button>
+        <button class="next-button">&#10095;</button>
+      </div>
+    </div>
+    <div class="fragrance-container">
+      <h2>fravor</h2>
+        <div class="fravor">
+          <% @fragrances.each do |fragrance| %>
+            <%= link_to fragrance_path(fragrance) do %>
+              <div class="fravor1">
+                <%= image_tag fragrance.image %>
+                <p><%= fragrance.name %></p>
+              </div>
+            <% end %>
+          <% end %>
+        </div>
+    </div>
+    <div class="contact">
+      <h2>お問い合わせ</h2>
+      <%= form_with(model: @user, url: "/create" , local: true) do |f| %>
+        <div class="form-group">
+          <%= f.label :name, "お名前" , class: "form-text" %>
+          <%= f.text_field :name, class: "form-control" %>
+        </div>
+        <div class="form-group">
+          <%= f.label :email, 'メールアドレス' , class: "form-text" %>
+          <%= f.text_field :email, class: "form-control" %>
+        </div>
+        <div class="form-group">
+          <%= f.label :message, 'お問い合わせ内容' , class: "form-text" %>
+          <%= f.text_area :message, class: 'form-area' %>
+        </div>
+        <div class="submit">
+          <%= f.submit '入力内容確認' %>
+        </div>
+        <% end %>
+    </div>
+  </main>
+</body>
+
+</html>

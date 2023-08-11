@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="UTF-8">
+  <title>RaMN official website</title>
+  <meta name="description" content="キャンドル専門店のRaMNのウェブサイトです">
+  <meta name="viewport" content="width=device-width">
+  <%= stylesheet_link_tag "items_top" , :media=> "all" %>
+</head>
+
+<body>
+  <main>
+<div class="first-view-container">
+  <div class="image-container">
+    <%= link_to image_tag("candle/candle 02.webp"), "items" , class: "items01" %>
+      <%= link_to image_tag("candle/candle 50.jpg"), "items" , class: "items01" %>
+  </div>
+  <div class="text-container">
+    <div class="first-text">
+      <p>①.素材は2種類</p>
+    </div>
+    <p class="second-text">×</p>
+    <div class="third-text">
+      <p>②.香りは10種類</p>
+    </div>
+  </div>
+</div>
+<div class="second-view-container">
+  <%= link_to image_tag("candle/candle 51.jpg"), "items"  %>
+  <p>・香りお試し用</p>
+</div>
+<div>
+  <div  <%= @sort === "latest" ? "bg-gray-800 text-gray-100" : "bg-gray-100 text-gray-800" %>">
+    <%= link_to 'Latest', products_path(latest: true) %>
+  </div>
+  <div <%= @sort === "price_high_to_low" ? "bg-gray-800 text-gray-100" : "bg-gray-100 text-gray-800" %>">
+    <%= link_to 'Price: High to Low', products_path(price_high_to_low: true) %>
+  </div>
+  <div <%= @sort === "price_low_to_high" ? "bg-gray-800 text-gray-100" : "bg-gray-100 text-gray-800" %>">
+    <%= link_to 'Price: Low to High', products_path(price_low_to_high: true) %>
+  </div>
+</div>
+<div class="third-view-container">
+  <% @products.each do |product| %>
+    <div class="grid-container">
+      <%= link_to product_path(product) do %>
+        <%= image_tag product.image %>
+      <% end %>
+    </div>
+    <div class="grid-container">
+      <%= link_to product_path(product) do %>
+        <dl>
+          <dt><%= product.name %></dt>
+          <dd><%= product.description %></dd>
+          <div>
+            <span><%= number_to_currency(product.price, unit: "¥", strip_insignificant_zeros: true) %></span>
+          </div>
+        </dl>
+      <% end %>
+    </div>
+  <% end %>
+</div>
+</main>
+</body>
+
+</html>

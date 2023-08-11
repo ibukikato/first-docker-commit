@@ -1,0 +1,2 @@
+class Ramn < ApplicationRecord
+end

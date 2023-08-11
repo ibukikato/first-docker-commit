@@ -1,0 +1,13 @@
+<div class="contact">
+      <h2>配達日時</h2>
+      <%= form_with(model: @ramn, url: "/delivery" , local: true) do |f| %>
+        <%= f.hidden_field :product_id, :value=> @customer.email %>
+        <div class="form-group">
+          <%= f.label :time, "希望配達日時" , class: "form-text" %>
+          <%= f.text_field :time, class: "form-control" %>
+        </div>
+        <div class="submit">
+          <%= f.submit '入力内容確認' %>
+        </div>
+        <% end %>
+    </div>

@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="UTF-8">
+  <title>RaMN official website</title>
+  <meta name="description" content="キャンドル専門店のRaMNのウェブサイトです">
+  <meta name="viewport" content="width=device-width">
+  <%= stylesheet_link_tag "about_top" , :media=> "all" %>
+</head>
+
+<body>
+  <main>
+    <div class="first-view">
+      <h2>見た目に美しさを、香りで癒しを</h2>
+      <dl>
+        <dd>
+          1837年の創業以来、エルメスは職人によるものづくりとそれに関わるすべての人を大切にするという価値観を守り続けています。創造における自由を保ち、常に最高の素材を追求し、卓抜したノウハウを伝承していくことで、長い間役に立ち使うことのできるエレガントなオブジェが生まれます。これこそがエルメスというメゾンが誇る独自性なのです。
+        </dd>
+      </dl>
+    </div>
+    <div class="second-view">
+      <dl>
+        <dt>-RaMN-</dt>
+        <dd>RaMN(ラム)は、見た目に美しさを追求し、香りで心を癒すキャンドル専門店です。私たちは、美しいデザインと魅力的な香りを使用し、様々なな瞬間を彩るための魅力的なキャンドルを厳選して取り揃えています。</dd>
+        <div class="link-button-area">
+          <%= link_to "more", "about/RaMN", class: "link-button" %>
+        </div>
+      </dl>
+      <div class="second-inner">
+        <%= link_to image_tag("ikon/ikon01.jfif"), "items"  %>
+      </div>
+    </div>
+    <div class="third-view">
+      <dl>
+        <dt>美しさを追及して</dt>
+        <dd>
+          RaMNでは、美しさを追求することに情熱を傾けています。私たちのキャンドルは、その美しいデザインと優れた品質で多くの人々を魅了してきました。どんなシーンでも、心を豊かに彩り、瞬間を特別なものにするための一輪の輝きとなるのです。
+        </dd>
+        <div class="link-button-area">
+          <%= link_to "more", "about/beatiful", class: "link-button" %>
+        </div>
+      </dl>
+      <%= link_to image_tag("candle/candle 05.webp"), "items"  %>
+    </div>
+    <div class="fourth-view">
+      <dl>
+        <dt>癒しの香りを求めて</dt>
+        <dd>癒しの香りは、私たちの心と体をリラックスさせ、日々のストレスから解放してくれる特別な存在です。RaMNでは、そんな癒しの香りを追求し、お客様に心地よい癒しのひとときを提供しています。</dd>
+        <div class="link-button-area">
+          <%= link_to "more", "about/fravor", class: "link-button" %>
+        </div>
+      </dl>
+      <%= link_to image_tag("photo/photo 02.jfif"), "items"  %>
+    </div>
+    <div class="fifth-view">
+      <dl>
+        <dt>心地よい日常の灯り</dt>
+        <dd>生活に馴染むキャンドルは、私たちの日常に温かさと心地よさをもたらす特別な存在です。RaMNでは、そんな生活に寄り添うキャンドルを提案し、お客様に心地よい日常の灯りをお届けしています。</dd>
+        <div class="link-button-area">
+          <%= link_to "more", "about/life", class: "link-button" %>
+        </div>
+      </dl>
+      <%= link_to image_tag("photo/photo 03.webp"), "items" %>
+    </div>
+  </main>
+</body>
+
+</html>
