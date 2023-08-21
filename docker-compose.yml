@@ -11,9 +11,22 @@ services:
   web:
     build: .
     command: rails s -p 3000 -b '0.0.0.0'
-    volumes:
-      - .:/app_name
     ports:
       - "3000:3000"
+    volumes:
+      - .:/app_name
     links:
       - db
+
+  tps-portal:
+    image: steveltn/https-portal:1
+    ports:
+      - '80:80'
+      - '443:443'
+    links:
+      - web
+    restart: always
+    environment:
+      DOMAINS: 'ramn0607.com'
+      STAGE: 'production'
+      FORCE_RENEW: 'true'

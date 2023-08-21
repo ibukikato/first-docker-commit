@@ -90,6 +90,16 @@ Rails.application.configure do
     config.logger    = ActiveSupport::TaggedLogging.new(logger)
   end
 
+  config.action_mailer.default_url_options = { host: '49.212.193.136', port: 3000 }
+  config.action_mailer.delivery_method = :smtp
+  config.action_mailer.smtp_settings = {
+    address: 'smtp.gmail.com',
+    domain: 'gmail.com',
+    port: 587,
+    user_name: Rails.application.credentials.dig(:gmail, :email), # Gmailアドレス（credentials.yml.encに記載）
+    password: Rails.application.credentials.dig(:gmail, :app_password),  # アプリパスワード（credentials.yml.encに記載）
+    authentication: :login
+  }
   # Do not dump schema after migrations.
   config.active_record.dump_schema_after_migration = false
 end
